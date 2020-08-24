@@ -1,4 +1,6 @@
+import 'package:covid19_app/infoscreen.dart';
 import 'package:covid19_app/widgets/counter.dart';
+import 'package:covid19_app/widgets/myheader.dart';
 import 'package:flutter/material.dart';
 import 'package:covid19_app/constant.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -31,59 +33,10 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: <Widget>[
-          ClipPath(
-            clipper: MyClipper(),
-            child: Container(
-              padding: EdgeInsets.only(left: 40, top: 50, right: 20),
-              height: 350,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.topRight,
-                    end: Alignment.bottomLeft,
-                    colors: [
-                      Color(0xff3383cd),
-                      Color(0xff11249f),
-                    ]),
-                image: DecorationImage(
-                  image: AssetImage("assets/images/virus.png"),
-                ),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Align(
-                    alignment: Alignment.topRight,
-                    child: SvgPicture.asset("assets/icons/menu.svg"),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Expanded(
-                    child: Stack(
-                      children: <Widget>[
-                        SvgPicture.asset(
-                          "assets/icons/Drcorona.svg",
-                          width: 230,
-                          fit: BoxFit.fitWidth,
-                          alignment: Alignment.topCenter,
-                        ),
-                        Positioned(
-                          top: 20,
-                          left: 150,
-                          child: Text(
-                            "Stay At Home and\n Stay Safe Guyss",
-                            style:
-                                kHeadingTextStyle.copyWith(color: Colors.white),
-                          ),
-                        ),
-                        Container(), // not sure why we need this
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
+          MyHeader(
+            image: "assets/icons/Drcorona.svg",
+            textTop: "Stay at home and ",
+            textBottom: "stay safe guyss",
           ),
           Container(
             margin: EdgeInsets.symmetric(horizontal: 20),
