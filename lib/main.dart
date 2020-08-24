@@ -107,6 +107,7 @@ class HomeScreen extends StatelessWidget {
                     value: "Malaysia",
                     isExpanded: true,
                     underline: SizedBox(),
+                    icon: SvgPicture.asset("assets/icons/dropdown.svg"),
                     items: ['Malaysia', 'Turki', 'Russia', 'Japan']
                         .map<DropdownMenuItem<String>>((String value) {
                       return DropdownMenuItem<String>(
@@ -127,18 +128,87 @@ class HomeScreen extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               children: <Widget>[
-                RichText(
-                  text: TextSpan(
-                    children: [
-                      TextSpan(
-                        text: "Case Update\n",
-                        style: kTitleTextStyle,
+                Row(
+                  children: <Widget>[
+                    RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: "Case \n",
+                            style: kTitleTextStyle,
+                          ),
+                          TextSpan(
+                            text: "Newest Update Disember 13",
+                            style: TextStyle(
+                              color: kTextLightColor,
+                            ),
+                          ),
+                        ],
                       ),
-                      TextSpan(
-                        text: "Newest Update Disember 13",
-                        style: TextStyle(
-                          color: kTextLightColor,
-                        ),
+                    ),
+                    Spacer(),
+                    Text(
+                      "See Details",
+                      style: TextStyle(
+                        color: kPrimaryColor,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  padding: EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        offset: Offset(0, 4),
+                        blurRadius: 30,
+                        color: kShadowColor,
+                      ),
+                    ],
+                  ),
+                  child: Row(
+                    children: <Widget>[
+                      Column(
+                        children: <Widget>[
+                          Container(
+                            height: 25,
+                            width: 25,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: kInfectedColor.withOpacity(.26),
+                            ),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.transparent,
+                                border: Border.all(
+                                  color: kInfectedColor,
+                                  width: 2,
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "1046",
+                            style: TextStyle(
+                              fontSize: 40,
+                              color: kInfectedColor,
+                            ),
+                          ),
+                          Text(
+                            "Infected",
+                            style: kSubTextStyle,
+                          ),
+                        ],
                       ),
                     ],
                   ),
